@@ -5,9 +5,15 @@
 	var mongojs= require('mongojs')
 	var db = mongojs('my-note', ['tasks']);
 
-	router.get('/', function(req, res){
-		res.render('index');
-	});
+	router.get('/', function(req, res) {
+    	res.render('index');
+  	});	
+
+	router.get('/api/tasks', function(req, res) {
+    db.tasks.find(function(err, data) {
+      res.json(data);
+    });
+  });
 
 	module.exports = router;
 }());
