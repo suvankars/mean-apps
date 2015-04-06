@@ -3,8 +3,20 @@
         <input type="text" class="form-control input-lg" placeholder="Enter a Task" ng-keypress="save($event)" ng-model="taskName">
     </div>
     
-    <div class="alert alert-info text-center" ng-hide="todos.length > 0">
+    <div class="alert alert-info text-center" ng-hide="tasks.length > 0">
         <h3>Tasks are comming soon! </h3>
     </div>
+
+    <div ng-repeat="task in tasks" ng-class="task.isCompleted ? 'strike' : ''">
+        <div >
+                <input type="checkbox" ng-checked="task.isCompleted" ng-click="update($event, task._id, $index)">
+            <span ng-show="!isEditable[$index]">{{task.task}}</span>
+            
+            </div>
+        
+        
+    </div>
+
+    
     
 </div>

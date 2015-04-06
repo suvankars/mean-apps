@@ -1,0 +1,4 @@
+.strike span {
+    text-decoration: line-through;
+    color: #ccc;
+}

@@ -20,6 +20,19 @@
 			res.json(data)
 		});
 	});
- 
- 	module.exports = router;
+ 	
+ 	router.put('/api/tasks', function(req, res){
+ 		db.tasks.update({
+ 			_id: mongojs.ObjectId(req.body._id)},
+ 			{
+ 				isCompleted: req.body.isCompleted,
+ 				task: req.body.task	
+ 			}, function(err, data){
+ 				res.json(data);
+ 			
+ 		});
+ 	});
+
+ 	
+   	module.exports = router;
 }());

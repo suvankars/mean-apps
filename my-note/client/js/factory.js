@@ -9,6 +9,10 @@ myNote.factory('tasksFactory', function($http) {
   _taskService.createTask = function(task) {
     return $http.post(urlBase, task);
   };
+
+  _taskService.updateTask = function(task) {
+    return $http.put(urlBase, task);
+  };
  
   return _taskService;
 });
