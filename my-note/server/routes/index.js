@@ -33,6 +33,14 @@
  		});
  	});
 
- 	
+  	router.delete('/api/tasks/:_id', function(req, res) {
+	    db.tasks.remove({
+			_id: mongojs.ObjectId(req.params._id)
+	    }, '', function(err, data) {
+			res.json(data);
+	    });
+ 
+  	});
+
    	module.exports = router;
 }());

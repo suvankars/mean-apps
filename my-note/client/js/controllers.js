@@ -37,4 +37,12 @@ myNote.controller('TaskController', function($rootScope, $scope, tasksFactory) {
 		});
 	};
 
+	$scope.delete = function(index) {
+    tasksFactory.deleteTask($scope.tasks[index]._id).then(function(data) {
+      if (data.data) {
+        $scope.todos.splice(index, 1);
+      }
+    });
+  };
+
 });

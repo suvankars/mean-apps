@@ -13,6 +13,11 @@ myNote.factory('tasksFactory', function($http) {
   _taskService.updateTask = function(task) {
     return $http.put(urlBase, task);
   };
+
+  _taskService.deleteTask = function(id) {
+    return $http.delete(urlBase + '/' + id);
+  };
+ 
  
   return _taskService;
 });

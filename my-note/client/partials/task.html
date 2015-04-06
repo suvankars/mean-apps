@@ -7,12 +7,14 @@
         <h3>Tasks are comming soon! </h3>
     </div>
 
-    <div ng-repeat="task in tasks" ng-class="task.isCompleted ? 'strike' : ''">
+    <div ng-repeat="task in tasks" class="task" ng-class="task.isCompleted ? 'strike' : ''">
         <div >
-                <input type="checkbox" ng-checked="task.isCompleted" ng-click="update($event, task._id, $index)">
+            <input type="checkbox" ng-checked="task.isCompleted" ng-click="update($event, task._id, $index)">
             <span ng-show="!isEditable[$index]">{{task.task}}</span>
-            
-            </div>
+           
+            <input type="button" class="btn btn-danger" class="pull-right" value="x" ng-click="delete($index)" />
+           
+        </div>
         
         
     </div>
