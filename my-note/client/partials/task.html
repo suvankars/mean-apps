@@ -1,13 +1,10 @@
-<div class="container" ng-controller="NoteController">
-    <div >
-        <div>
-            <input type="text" class="form-control input-lg" placeholder="Enter a Task">
-        </div>
+<div class="container" ng-controller="TaskController">
+    <div>
+        <input type="text" class="form-control input-lg" placeholder="Enter a Task" ng-keypress="save($event)" ng-model="taskName">
     </div>
-    <div >
-        <div class="alert alert-info text-center" ng-hide="tasks.length > 0">
-            <h3>Comming Soon !</h3>
-        </div>
-        
+    
+    <div class="alert alert-info text-center" ng-hide="todos.length > 0">
+        <h3>Tasks are comming soon! </h3>
     </div>
+    
 </div>

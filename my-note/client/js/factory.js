@@ -1,11 +1,15 @@
-myNote.factory('tasks', function($http) {
+myNote.factory('tasksFactory', function($http) {
   var urlBase = '/api/tasks';
-  var _todoService = {};
+  var _taskService = {};
  
-  _todoService.getTasks = function() {
+  _taskService.getTasks = function() {
     return $http.get(urlBase);
   };
  
+  _taskService.createTask = function(task) {
+    return $http.post(urlBase, task);
+  };
  
-  return _todoService;
+  return _taskService;
 });
+

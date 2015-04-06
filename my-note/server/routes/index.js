@@ -10,10 +10,16 @@
   	});	
 
 	router.get('/api/tasks', function(req, res) {
-    db.tasks.find(function(err, data) {
-      res.json(data);
-    });
-  });
+	    db.tasks.find(function(err, data) {
+	      res.json(data);
+	    });
+  	});
 
-	module.exports = router;
+	router.post('/api/tasks', function(req, res) {
+		db.tasks.insert(req.body, function(err, data){
+			res.json(data)
+		});
+	});
+ 
+ 	module.exports = router;
 }());
