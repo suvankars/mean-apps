@@ -10,8 +10,13 @@
     <div ng-repeat="task in tasks" class="task" ng-class="task.isCompleted ? 'strike' : ''">
         <div >
             <input type="checkbox" ng-checked="task.isCompleted" ng-click="update($event, task._id, $index)">
-            <span ng-show="!isEditable[$index]">{{task.task}}</span>
-           
+            
+              <div >
+                <span ng-show="!isEditable[$index]">{{task.task}}</span>
+                <input ng-show="isEditable[$index]" type="text" value="{{task.task}}" ng-keypress="edit($event, $index);">
+                <input ng-show="isEditable[$index]" type="button" class="btn btn-warning" value="Cancel" ng-click="isEditable[$index] = false" />
+            </div>
+             <input type="button" class="btn btn-info" ng-disabled="todo.isCompleted" class="pull-right" value="Edit" ng-click="isEditable[$index] = true" />
             <input type="button" class="btn btn-danger" class="pull-right" value="x" ng-click="delete($index)" />
            
         </div>

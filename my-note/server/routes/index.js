@@ -21,17 +21,18 @@
 		});
 	});
  	
- 	router.put('/api/tasks', function(req, res){
- 		db.tasks.update({
- 			_id: mongojs.ObjectId(req.body._id)},
- 			{
- 				isCompleted: req.body.isCompleted,
- 				task: req.body.task	
- 			}, function(err, data){
- 				res.json(data);
- 			
- 		});
- 	});
+  
+	router.put('/api/tasks', function(req, res) {
+		db.tasks.update({
+		  _id: mongojs.ObjectId(req.body._id)
+		}, {
+		  isCompleted: req.body.isCompleted,
+		  task: req.body.task
+		}, {}, function(err, data) {
+		  res.json(data);
+		});
+
+	});
 
   	router.delete('/api/tasks/:_id', function(req, res) {
 	    db.tasks.remove({
